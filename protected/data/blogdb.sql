@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 30, 2013 at 07:33 AM
+-- Generation Time: Oct 30, 2013 at 08:23 AM
 -- Server version: 5.5.34-0ubuntu0.13.10.1
 -- PHP Version: 5.5.3-1ubuntu2
 
@@ -28,14 +28,13 @@ SET time_zone = "+00:00";
 
 CREATE TABLE IF NOT EXISTS `comment` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
   `post_id` int(11) DEFAULT NULL,
   `content` text,
   `date_create` datetime DEFAULT NULL,
-  `spam` tinyint(1) DEFAULT NULL,
+  `spam` int(11) DEFAULT '0',
   PRIMARY KEY (`id`),
-  KEY `FK_comment_post` (`post_id`),
-  KEY `FK_comment_user` (`user_id`)
+  KEY `FK_comment_post` (`post_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
@@ -78,7 +77,6 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Constraints for table `comment`
 --
 ALTER TABLE `comment`
-  ADD CONSTRAINT `FK_comment_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   ADD CONSTRAINT `FK_comment_post` FOREIGN KEY (`post_id`) REFERENCES `post` (`id`);
 
 --
