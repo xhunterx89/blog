@@ -23,7 +23,21 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'content'); ?>
-		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
+                <?php $this->widget('application.extensions.TheCKEditor.TheCKEditorWidget',array(
+                    'model'=>$model,                # Data-Model (form model)
+                    'attribute'=>'content',         # Attribute in the Data-Model
+                    "config" => array(
+                    "height" => "400px",
+                    "width" => "98%",
+                    "toolbar" => "Full",
+                    ),
+                    'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
+                                                    # Path to ckeditor.php
+                    'ckBasePath'=>Yii::app()->baseUrl.'/ckeditor/',
+                                                    # Relative Path to the Editor (from Web-Root)
+                    'css' => Yii::app()->baseUrl.'/css/index.css',
+                                                    # Additional Parameters
+                ) ); ?>
 		<?php echo $form->error($model,'content'); ?>
 	</div>
 
