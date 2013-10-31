@@ -227,3 +227,17 @@ div.search-form
 {
 	background: #80CFFF;
 }
+
+.detail-text
+{
+	width: 500px;
+	float: left;
+}
+
+.detail-text img{
+	float: left;
+}
+
+.detail-text span{
+	margin-left: 20px;
+}
