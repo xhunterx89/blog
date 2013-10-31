@@ -17,6 +17,7 @@
  */
 class User extends CActiveRecord
 {
+	public $img;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -45,6 +46,7 @@ class User extends CActiveRecord
 		return array(
 			array('username, email, password', 'required'),
 			array('username, email, password', 'length', 'max'=>255),
+			array('img', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'), 
 			array('description, img', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
