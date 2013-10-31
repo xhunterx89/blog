@@ -98,8 +98,19 @@ class UserController extends Controller
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			$model->img=CUploadedFile::getInstance($model,'img');
 			if($model->save())
+			{
+				if($model->img)
+				{
+					$model->img->saveAs("img{$model->id}");	
+				}
+				else
+				{
+					$model->img = null;
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('update',array(
