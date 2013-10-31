@@ -5,12 +5,11 @@
 
 <div class="view">
 	<?php if(Yii::app()->user->id == $data->id) { ?>
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
-	<br />
-
+	<?php echo CHtml::image(Yii::app()->baseUrl.'/img'.$data->id,'Image',array('width'=>200,'height'=>200))?>
+	
+	</br>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('username')); ?>:</b>
-	<?php echo CHtml::encode($data->username); ?>
+	<?php echo CHtml::link(CHtml::encode($data->username),array('view','id'=>$data->id)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
@@ -23,10 +22,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('description')); ?>:</b>
 	<?php echo CHtml::encode($data->description); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('img')); ?>:</b>
-	<?php echo CHtml::encode($data->img); ?>
 	<br />
 	<?php } ?>
 
