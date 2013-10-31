@@ -201,3 +201,6 @@ in /var/www/blog/index.php (19)
 2013/10/31 06:12:25 [warning] [application] Failed to set unsafe attribute "img" of "User".
 in /var/www/blog/protected/controllers/UserController.php (100)
 in /var/www/blog/index.php (19)
+2013/10/31 06:36:05 [warning] [application] Failed to set unsafe attribute "img" of "User".
+in /var/www/blog/protected/controllers/UserController.php (100)
+in /var/www/blog/index.php (19)
