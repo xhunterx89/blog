@@ -28,11 +28,11 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','create'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','delete'),
+				'actions'=>array('update','delete'),
 				'users'=>array('@'),
 			),
 			// array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -73,7 +73,7 @@ class UserController extends Controller
 			$model->img=CUploadedFile::getInstance($model,'img');
 			if($model->save())
 			{
-				$model->img->saveAs("img{$model->id}");
+				if($model->img)	$model->img->saveAs("img{$model->id}");
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}

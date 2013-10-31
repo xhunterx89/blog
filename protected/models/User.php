@@ -46,6 +46,8 @@ class User extends CActiveRecord
 		return array(
 			array('username, email, password', 'required'),
 			array('username, email, password', 'length', 'max'=>255),
+			array('email','email'),
+			array('username, email','unique','on'=>'insert'),
 			array('img', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'), 
 			array('description, img', 'safe'),
 			// The following rule is used by search().
@@ -103,10 +105,5 @@ class User extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	public function validatePassword($password)
-	{
-		return $this->hashPassword($password)===$this->password;
 	}
 }
