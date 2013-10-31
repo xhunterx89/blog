@@ -42,12 +42,10 @@ class Post extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>255),
-			array('content, date_create', 'safe'),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, user_id, title, content, date_create', 'safe', 'on'=>'search'),
+			array('title, content', 'required'),
+			array('title', 'length', 'max'=>128),
+                        array('title', 'safe', 'on'=>'search'),
+
 		);
 	}
 
@@ -99,4 +97,24 @@ class Post extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        protected function beforeSave()
+        {
+            if(parent::beforeSave())
+            {
+                if($this->isNewRecord)
+                {
+                    $this->date_create=new CDbExpression('NOW()');
+                    $this->user_id=Yii::app()->user->id;
+                }
+                return true;
+            }
+            else
+                return false;
+        }
+        
+        protected function afterDelete()
+        {
+            parent::afterDelete();
+        }
 }

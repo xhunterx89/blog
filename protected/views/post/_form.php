@@ -16,12 +16,6 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'user_id'); ?>
-		<?php echo $form->textField($model,'user_id'); ?>
-		<?php echo $form->error($model,'user_id'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'title'); ?>
@@ -31,12 +25,6 @@
 		<?php echo $form->labelEx($model,'content'); ?>
 		<?php echo $form->textArea($model,'content',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'content'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'date_create'); ?>
-		<?php echo $form->textField($model,'date_create'); ?>
-		<?php echo $form->error($model,'date_create'); ?>
 	</div>
 
 	<div class="row buttons">

@@ -44,3 +44,89 @@ Stack trace:
 REQUEST_URI=/blog/index.php
 HTTP_REFERER=http://localhost/blog/index.php?r=site/login
 ---
+2013/10/30 10:25:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/daolm/PHP/www/yii/framework/db/CDbConnection.php:382
+Stack trace:
+#0 /home/daolm/PHP/www/yii/framework/db/CDbConnection.php(330): CDbConnection->open()
+#1 /home/daolm/PHP/www/yii/framework/db/CDbConnection.php(308): CDbConnection->setActive(true)
+#2 /home/daolm/PHP/www/yii/framework/base/CModule.php(387): CDbConnection->init()
+#3 /home/daolm/PHP/www/yii/framework/base/CApplication.php(450): CModule->getComponent('db')
+#4 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(634): CApplication->getDb()
+#5 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(667): CActiveRecord->getDbConnection()
+#6 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(1595): CActiveRecord->getCommandBuilder()
+#7 /home/daolm/PHP/www/yii/framework/web/CActiveDataProvider.php(228): CActiveRecord->count(Object(CDbCriteria))
+#8 /home/daolm/PHP/www/yii/framework/web/CDataProvider.php(224): CActiveDataProvider->calculateTotalItemCount()
+#9 /home/daolm/PHP/www/yii/framework/web/CActiveDataProvider.php(178): CDataProvider->getTotalItemCount()
+#10 /home/daolm/PHP/www/yii/framework/web/CDataProvider.php(168): CActiveDataProvider->fetchData()
+#11 /home/daolm/PHP/www/yii/framework/zii/widgets/CBaseListView.php(111): CDataProvider->getData()
+#12 /home/daolm/PHP/www/yii/framework/zii/widgets/CListView.php(211): CBaseListView->init()
+#13 /home/daolm/PHP/www/yii/framework/web/CBaseController.php(147): CListView->init()
+#14 /home/daolm/PHP/www/yii/framework/web/CBaseController.php(172): CBaseController->createWidget('zii.widgets.CLi...', Array)
+#15 /home/daolm/PHP/www/blog/protected/views/post/index.php(20): CBaseController->widget('zii.widgets.CLi...', Array)
+#16 /home/daolm/PHP/www/yii/framework/web/CBaseController.php(126): require('/home/daolm/PHP...')
+#17 /home/daolm/PHP/www/yii/framework/web/CBaseController.php(95): CBaseController->renderInternal('/home/daolm/PHP...', Array, true)
+#18 /home/daolm/PHP/www/yii/framework/web/CController.php(869): CBaseController->renderFile('/home/daolm/PHP...', Array, true)
+#19 /home/daolm/PHP/www/yii/framework/web/CController.php(782): CController->renderPartial('index', Array, true)
+#20 /home/daolm/PHP/www/blog/protected/controllers/PostController.php(128): CController->render('index', Array)
+#21 /home/daolm/PHP/www/yii/framework/web/actions/CInlineAction.php(49): PostController->actionIndex()
+#22 /home/daolm/PHP/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#23 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#24 /home/daolm/PHP/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#25 /home/daolm/PHP/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#26 /home/daolm/PHP/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#27 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#28 /home/daolm/PHP/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#29 /home/daolm/PHP/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(282): CController->run('')
+#31 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('post')
+#32 /home/daolm/PHP/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#33 /home/daolm/PHP/www/blog/index.php(19): CApplication->run()
+#34 {main}
+REQUEST_URI=/blog/index.php?r=post
+---
+2013/10/31 03:09:04 [error] [exception.CException] exception 'CException' with message 'Property "Post.date_update" is not defined.' in /home/daolm/PHP/www/yii/framework/base/CComponent.php:173
+Stack trace:
+#0 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(161): CComponent->__set('date_update', Object(CDbExpression))
+#1 /home/daolm/PHP/www/blog/protected/models/Post.php(107): CActiveRecord->__set('date_update', Object(CDbExpression))
+#2 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(1071): Post->beforeSave()
+#3 /home/daolm/PHP/www/yii/framework/db/ar/CActiveRecord.php(806): CActiveRecord->insert(NULL)
+#4 /home/daolm/PHP/www/blog/protected/controllers/PostController.php(68): CActiveRecord->save()
+#5 /home/daolm/PHP/www/yii/framework/web/actions/CInlineAction.php(49): PostController->actionCreate()
+#6 /home/daolm/PHP/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#7 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#8 /home/daolm/PHP/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#9 /home/daolm/PHP/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#10 /home/daolm/PHP/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#11 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#12 /home/daolm/PHP/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#13 /home/daolm/PHP/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(282): CController->run('create')
+#15 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('post/create')
+#16 /home/daolm/PHP/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#17 /home/daolm/PHP/www/blog/index.php(19): CApplication->run()
+#18 {main}
+REQUEST_URI=/blog/index.php?r=post/create
+HTTP_REFERER=http://localhost/blog/index.php?r=post/create
+---
+2013/10/31 03:12:00 [error] [exception.CException] exception 'CException' with message 'Property "PostController._model" is not defined.' in /home/daolm/PHP/www/yii/framework/base/CComponent.php:130
+Stack trace:
+#0 /home/daolm/PHP/www/blog/protected/controllers/PostController.php(156): CComponent->__get('_model')
+#1 /home/daolm/PHP/www/blog/protected/controllers/PostController.php(50): PostController->loadModel('1')
+#2 [internal function]: PostController->actionView('1')
+#3 /home/daolm/PHP/www/yii/framework/web/actions/CAction.php(108): ReflectionMethod->invokeArgs(Object(PostController), Array)
+#4 /home/daolm/PHP/www/yii/framework/web/actions/CInlineAction.php(47): CAction->runWithParamsInternal(Object(PostController), Object(ReflectionMethod), Array)
+#5 /home/daolm/PHP/www/yii/framework/web/CController.php(308): CInlineAction->runWithParams(Array)
+#6 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#7 /home/daolm/PHP/www/yii/framework/web/filters/CFilter.php(40): CFilterChain->run()
+#8 /home/daolm/PHP/www/yii/framework/web/CController.php(1145): CFilter->filter(Object(CFilterChain))
+#9 /home/daolm/PHP/www/yii/framework/web/filters/CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#10 /home/daolm/PHP/www/yii/framework/web/filters/CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#11 /home/daolm/PHP/www/yii/framework/web/CController.php(291): CFilterChain->run()
+#12 /home/daolm/PHP/www/yii/framework/web/CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(282): CController->run('view')
+#14 /home/daolm/PHP/www/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('post/view')
+#15 /home/daolm/PHP/www/yii/framework/base/CApplication.php(180): CWebApplication->processRequest()
+#16 /home/daolm/PHP/www/blog/index.php(19): CApplication->run()
+#17 {main}
+REQUEST_URI=/blog/index.php?r=post/view&id=1
+HTTP_REFERER=http://localhost/blog/index.php?r=post/create
+---
