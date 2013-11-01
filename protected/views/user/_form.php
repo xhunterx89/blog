@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'img'); ?>
+		<?php echo $form->labelEx($model,'Image'); ?>
 		<?php echo $form->fileField($model, 'img'); ?>
 		<?php echo $form->error($model,'img'); ?>
 	</div>

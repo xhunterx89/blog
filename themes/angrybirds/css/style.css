@@ -541,6 +541,15 @@ margin-right: 25px;
 margin-top: 25px;
 }
 
+#sidebar2{
+float: left;
+word-wrap: break-word; 
+overflow: hidden; 
+margin-right: 25px;
+margin-top: 25px;
+}
+
+
 #subscription {
 list-style: none;
 margin-top: 0px;

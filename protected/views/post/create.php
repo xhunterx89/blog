@@ -7,10 +7,10 @@ $this->breadcrumbs=array(
 	'Create',
 );
 
-$this->menu=array(
-	array('label'=>'List Post', 'url'=>array('index')),
-	array('label'=>'Manage Post', 'url'=>array('admin')),
-);
+// $this->menu=array(
+// 	array('label'=>'List Post', 'url'=>array('index')),
+// 	array('label'=>'Manage Post', 'url'=>array('admin')),
+// );
 ?>
 
 <h1>Create Post</h1>
