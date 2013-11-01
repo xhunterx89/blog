@@ -78,7 +78,7 @@
         
         <a href="http://twitter.com/">
 <img alt="Twitter" src="<?php echo Yii::app()->theme->baseUrl ?>/images/twitter.png"/></a>
-        <h4><a href="http://twitter.com/">Follow me</a></h4>
+        <h4><a href="http://twitter.com/princesslove_90">Follow me</a></h4>
         <p>You can follow my updates on Twitter</p>
 
       </li>
@@ -92,10 +92,10 @@
       </li>
 <li>
         
-        <a href="">
+        <a href="http://www.facebook.com">
 <img alt="Facebook" src="<?php echo Yii::app()->theme->baseUrl ?>/images/facebook.png"/></a>
-        <h4><a href="">Facebook</a></h4>
-        <p>Become a fan of Angry Birds on Facebook</p>
+        <h4><a href="http://www.facebook.com/tuandung.hoangthi">Facebook</a></h4>
+        <p>Become a fan of blog on Facebook</p>
       </li>
     </ul>
 </div>
