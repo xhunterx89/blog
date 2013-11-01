@@ -17,7 +17,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->textField($model,'title',array('size'=>53,'maxlength'=>255)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
@@ -27,8 +27,8 @@
                     'model'=>$model,                # Data-Model (form model)
                     'attribute'=>'content',         # Attribute in the Data-Model
                     "config" => array(
-                    "height" => "400px",
-                    "width" => "98%",
+                    "height" => "200px",
+                    "width" => "95%",
                     "toolbar" => "Full",
                     ),
                     'ckeditor'=>Yii::app()->basePath.'/../ckeditor/ckeditor.php',
