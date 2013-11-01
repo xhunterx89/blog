@@ -1078,3 +1078,40 @@ color: #DC002C;
 text-transform: uppercase;
 font-size: 11px;
 }
+
+/*
+DaoLM : Style
+*/
+.list-view .items .view{
+    border: 1px solid #7E920F;
+    float: left;
+    width: 92%;
+    margin-bottom: 20px;
+    padding: 5px;
+}
+
+#itemCompany{
+    float: left;
+    width: 95%;
+    margin-top: 20px;
+}
+
+#itemCompany ul li{
+    background: none repeat scroll 0 0 #7E920F;
+    border: medium none;
+    color: #FFFFFF;
+    float: left;
+    font-size: 10px;
+    font-weight: bold;
+    height: 18px;
+    margin: 0 15px 0 0;
+    outline: medium none;
+    padding: 10px 0 0 9px;
+    text-transform: uppercase;
+    width: 80px;
+}
+
+#itemCompany ul li a{
+    color: white;
+    text-decoration: none;
+}
