@@ -13,19 +13,16 @@
 <![endif]-->
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
-<!--script src="http://zkiwi.com/libs/js/snow.js" type="text/javascript"></script>
+<script src="http://zkiwi.com/libs/js/snow.js" type="text/javascript"></script>
 <script type="text/javascript">
    createSnow('http://zkiwi.com/libs/imgs/snow/', 30);
-</script-->
+</script
 
 </head>
 
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
 
 <body>
-<!-- Chèn Flash phủ lên bề mặt blog -->
-<div id="Layer1" style="left: 0pt; position: fixed; top: 0pt; z-index: 0;"> 
-<embed align="center" height="400px" width="1200px" src="http://kenhdaihoc.com/blogger/tuyet.swf" wmode="transparent"></embed></div>
 <div id="background">
 <div id="header">
 
