@@ -103,11 +103,10 @@
 <div class="widget">
 <h3>Search this blog</h3>
 <div id="searchform">
-<form method="get" id="search" action="">
-<div><input type="text" value="" name="s" id="s" />
-<input type="submit" id="searchsubmit" value="Search" class="btn" />
-</div>
-</form>
+<?php echo CHtml::form(Yii::app()->createUrl('post/search'), 'get') ?>
+            <?php echo CHtml::textField('search_key','',array('placeholder' => 'Search')); ?>
+            <?php echo CHtml::submitButton('Go'); ?>
+<?php echo CHtml::endForm() ?>
 </div>
 </div>
 
