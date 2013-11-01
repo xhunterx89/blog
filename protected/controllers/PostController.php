@@ -29,7 +29,7 @@ class PostController extends Controller
 	{
 		return array(
               array('allow',
-                  'actions'=>array('index','view'),
+                  'actions'=>array('index','view','search'),
                   'users'=>array('*'),
               ),
               array('allow',
@@ -180,4 +180,16 @@ class PostController extends Controller
 			Yii::app()->end();
 		}
 	}
+        
+        public function actionSearch()
+        {
+            $model=new Post('search');
+            $model->unsetAttributes();  // clear any default values
+            if(isset($_GET['search_key'])) 
+                $model->title = $_GET['search_key'];     
+
+            $this -> render('search', array(
+                'model' => $model,
+            ));
+        }
 }
