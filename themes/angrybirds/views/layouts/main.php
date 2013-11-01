@@ -13,14 +13,20 @@
 <![endif]-->
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 
+<!--script src="http://zkiwi.com/libs/js/snow.js" type="text/javascript"></script>
+<script type="text/javascript">
+   createSnow('http://zkiwi.com/libs/imgs/snow/', 30);
+</script-->
+
 </head>
 
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
 
 <body>
-
+<!-- Chèn Flash phủ lên bề mặt blog -->
+<div id="Layer1" style="left: 0pt; position: fixed; top: 0pt; z-index: 0;"> 
+<embed align="center" height="400px" width="1200px" src="http://kenhdaihoc.com/blogger/tuyet.swf" wmode="transparent"></embed></div>
 <div id="background">
-
 <div id="header">
 
 <div id="menu">
@@ -30,7 +36,7 @@
 				array('label'=>'Introduction', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'Signup', 'url'=>array('/user/create'), 'visible'=>Yii::app()->user->isGuest),
 				//array('label'=>'Contact', 'url'=>array('/site/contact')),
-				array('label'=>'Profile', 'url'=>array('/user/index'), 'visible'=>!Yii::app()->user->isGuest),
+				array('label'=>'Profile', 'url'=>array('/user/view&id='.Yii::app()->user->id), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
@@ -52,7 +58,6 @@
 
 	<div id="content">
 			<?php echo $content ?>
-
 		<?php /*
 				<div id="post-2" class="post">
 			<h1 class="post-title">Sample Page</h1>
@@ -69,6 +74,8 @@
 	</div><!-- #content -->
 
 <div id="sidebar" class="sidebar">
+
+<embed src=" http://d.violet.vn/uploads/resources/495/0.Lam_dong_ho_Flash.swf?TimeZone=VietNam_Hanoi&Place=&"  width="300" height="180" wmode="transparent" type="application/x-shockwave-flash">
 
 <div class='widget' style='height: 250px'>
 <h3>Blog Subscription</h3>

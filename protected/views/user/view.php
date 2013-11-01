@@ -15,19 +15,19 @@ $this->breadcrumbs=array(
 // 	array('label'=>'Manage User', 'url'=>array('admin')),
 // );
 ?>
-
+<center>
 <h1><?php echo $model->username; ?></h1>
 
 <div class="detail-text">
-	<?php echo CHtml::image(Yii::app()->baseUrl.'/img'.$model->id,'Image',array('width'=>200,'height'=>200))?>
+	<?php echo CHtml::image(Yii::app()->baseUrl.'/img'.$model->id,'Image',array('width'=>400,'height'=>300))?>
 	<span>
-
-	<h3> <?php echo "Email: {$model->email}"?></h3>
+<br/><br/><br/><br/>
+	<h3> <?php echo "Email: {$model->email}"?></h3><br/><br/>
 
 	<h2> <?php echo "Description: {$model->description}"?></h3>
 
 	</span>
-
+	<br/><br/>
 	<?php
 		if(Yii::app()->user->id == $model->id)
 		{
@@ -39,3 +39,4 @@ $this->breadcrumbs=array(
 		}
 	?>
 </div>
+</center>
