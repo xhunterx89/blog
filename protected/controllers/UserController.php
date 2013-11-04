@@ -73,7 +73,7 @@ class UserController extends Controller
 			$model->img=CUploadedFile::getInstance($model,'img');
 			if($model->save())
 			{
-				if($model->img)	$model->img->saveAs("img{$model->id}");
+				if($model->img)	$model->img->saveAs("uploads/images/img{$model->id}");
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
@@ -103,13 +103,14 @@ class UserController extends Controller
 			{
 				if($model->img)
 				{
-					$model->img->saveAs("img{$model->id}");	
+					$model->img->saveAs("uploads/images/img{$model->id}");	
 				}
 				else
 				{
 					$model->img = null;
 				}
 				$this->redirect(array('view','id'=>$model->id));
+				$this->refresh();
 			}
 		}
 
