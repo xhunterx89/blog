@@ -6,15 +6,15 @@
  * and open the template in the editor.
  */
 
-class RecentPostWidget extends CWidget
+class RecentCommentWidget extends CWidget
 {
     public function run() {
-        $models = Post::model()->findAll(array(
+        $models = Comment::model()->findAll(array(
                 "order" => "id DESC",
                 "limit" => 3,
         ));
 
-        $this->render('recentpost', array(
+        $this->render('recentcomment', array(
             'models'=>$models   
         ));
     }

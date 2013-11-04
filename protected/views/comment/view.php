@@ -7,25 +7,43 @@ $this->breadcrumbs=array(
 	$model->name,
 );
 
-$this->menu=array(
-	array('label'=>'List Comment', 'url'=>array('index')),
-	array('label'=>'Create Comment', 'url'=>array('create')),
-	array('label'=>'Update Comment', 'url'=>array('update', 'id'=>$model->id)),
-	array('label'=>'Delete Comment', 'url'=>'#', 'linkOptions'=>array('submit'=>array('delete','id'=>$model->id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage Comment', 'url'=>array('admin')),
-);
 ?>
 
-<h1>View Comment #<?php echo $model->id; ?></h1>
+<h1>View Comment</h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
-	'data'=>$model,
-	'attributes'=>array(
-		'id',
-		'name',
-		'post_id',
-		'content',
-		'date_create',
-		'spam',
-	),
-)); ?>
+</br></br>
+
+	
+<div class="comment-container">
+<div class="comment-author">
+<?php echo CHtml::encode($model->name); ?> says:
+</div>
+
+<div class="">
+on <?php echo date('F j, Y \a\t h:i a',strtotime($model->date_create)); ?>
+</div>
+</br></br>
+<?php if ($model->spam<5){ ?>
+	<div class="comment-data">
+		<?php echo nl2br(CHtml::encode($model->content)); ?>
+	</div>
+	<div>
+		<?php echo CHtml::link('Spam '.$model->spam,array('post/CommentSpam','id'=>$model->id));?>
+	</div>
+
+<?php }else { ?>
+	<?php Yii::app()->clientScript->registerScript('toggler','$("#optional-link").bind("click",function(){$("#optional-text").toggle();})')?>
+
+	<?php echo CHtml::link('Show/hide comment spam','#',array('id'=>'optional-link')); ?>
+	<div id="optional-text" style="display: none" >
+    	<div class="comment-data">
+			<?php echo nl2br(CHtml::encode($model->content)); ?>
+		</div>
+		<div>
+			<?php echo CHtml::link('Spam '.$model->spam,array('post/CommentSpam','id'=>$model->id));?>
+		</div>
+	</div>
+	<?php } ?>
+<hr>
+</div>
+

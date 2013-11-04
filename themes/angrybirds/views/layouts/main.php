@@ -140,20 +140,10 @@
 <h4>Recent Comments</h4>
 
 <ul>
-<li>Claudia: <a href="#" title="on Introducing WP Theme">Threaded comment</a></li>
-<li>Claudia: <a href="#" title="on Introducing WP Theme">Testing comments</a></li>
-<li>Mr WordPress: <a href="#" title="on Category Hierarchy">Hi, this is a comment.To</a></li>
-</ul></div>
-
-<div class="footerbox" id="footerbox3">
-<h4>Archives</h4>
-<ul>
-	<li><a href='#' title='August 2011'>September 2011</a></li>
-	<li><a href='#' title='August 2011'>August 2011</a></li>
-	<li><a href='#' title='August 2011'>July 2011</a></li>
-	<li><a href='#' title='August 2011'>June 2011</a></li>
+	<?php $this->widget('RecentCommentWidget'); ?>
 </ul>
 </div>
+
 
 <div style="clear: both"></div>
 
