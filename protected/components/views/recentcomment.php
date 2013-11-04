@@ -9,7 +9,7 @@
 if($models != null): ?>
 <ul>
     <?php foreach($models as $model): ?>
-    <li><?php echo CHtml::link(CHtml::encode($model->content), 
+    <li><?php echo CHtml::link(CHtml::encode(substr(strip_tags($model->content), 0, 50)), 
         array('comment/view', 'id'=>$model->id)); ?></li>
     <?php endforeach; ?>
 </ul>
