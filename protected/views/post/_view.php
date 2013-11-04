@@ -8,7 +8,7 @@
   $cs->registerScriptFile($baseUrl.'/js/readmore.js');
 ?>
 <div class="view">
-
+	<!--?php $this->widget('PostDate', array('ct'=>date('F'.'<\b\r>j', strtotime($data->date_create)))); ?-->
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
 	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
 	<br />

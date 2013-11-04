@@ -19,7 +19,7 @@ $this->breadcrumbs=array(
 <h1><?php echo $model->username; ?></h1>
 
 <div class="detail-text">
-	<?php echo CHtml::image(Yii::app()->baseUrl.'/img'.$model->id,'Image',array('width'=>400,'height'=>300))?>
+	<?php echo CHtml::image(Yii::app()->baseUrl.'/uploads/images/img'.$model->id,'Image',array('width'=>400,'height'=>300))?>
 	<span>
 <br/><br/><br/><br/>
 	<h3> <?php echo "Email: {$model->email}"?></h3><br/><br/>
