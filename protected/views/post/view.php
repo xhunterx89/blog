@@ -39,3 +39,12 @@ $this->breadcrumbs=array(
    );
  }
 ?>
+
+<?php $this->renderPartial('_comments',array(
+    'comments'=>$model->comments,
+)); ?>
+
+  <h3>Leave a Comment</h3>
+      <?php $this->renderPartial('/comment/_form',array(
+        'model'=>$comment,
+      )); ?>

@@ -16,7 +16,7 @@
         <b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
 	<?php echo ($data->content); ?>
 	<br />
-        </<article>
+        <article>
 	<b><?php echo CHtml::encode($data->getAttributeLabel('date_create')); ?>:</b>
 	<?php echo CHtml::encode($data->date_create); ?>
 	<br />

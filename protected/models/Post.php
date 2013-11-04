@@ -98,23 +98,32 @@ class Post extends CActiveRecord
 		));
 	}
         
-        protected function beforeSave()
+    protected function beforeSave()
+    {
+        if(parent::beforeSave())
         {
-            if(parent::beforeSave())
+            if($this->isNewRecord)
             {
-                if($this->isNewRecord)
-                {
-                    $this->date_create=new CDbExpression('NOW()');
-                    $this->user_id=Yii::app()->user->id;
-                }
-                return true;
+                $this->date_create=new CDbExpression('NOW()');
+                $this->user_id=Yii::app()->user->id;
             }
-            else
-                return false;
+            return true;
         }
+        else
+            return false;
+    }
         
-        protected function afterDelete()
-        {
-            parent::afterDelete();
-        }
+    protected function afterDelete()
+    {
+        parent::afterDelete();
+    }
+
+	public function addComment($comment)
+	{
+		$comment->post_id=$this->id;
+		$comment->name = $this->user_id;
+        $comment->date_create = date('Y-m-d H:i:s');
+        //echo $comment->post_id;
+		return $comment->save();
+	}
 }

@@ -4,7 +4,7 @@
 
 $this->breadcrumbs=array(
 	'Comments'=>array('index'),
-	$model->id,
+	$model->name,
 );
 
 $this->menu=array(
@@ -22,7 +22,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'user_id',
+		'name',
 		'post_id',
 		'content',
 		'date_create',

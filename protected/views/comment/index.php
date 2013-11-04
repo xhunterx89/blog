@@ -5,13 +5,16 @@
 $this->breadcrumbs=array(
 	'Comments',
 );
+
+$this->menu=array(
+	array('label'=>'Create Comment', 'url'=>array('create')),
+	array('label'=>'Manage Comment', 'url'=>array('admin')),
+);
 ?>
-<div class="blog-comments-container">
-	<h3>Comments</h3>
-	<div class="view">
-		<?php $this->widget('zii.widgets.CListView', array(
-		'dataProvider'=>$dataProvider,
-		'itemView'=>'_view',
-		)); ?>
-	</div>
-</div>
+
+<h1>Comments</h1>
+
+<?php $this->widget('zii.widgets.CListView', array(
+	'dataProvider'=>$dataProvider,
+	'itemView'=>'_view',
+)); ?>
