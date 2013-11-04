@@ -48,12 +48,18 @@ $this->breadcrumbs=array(
    );
  }
 ?>
-
-<?php $this->renderPartial('_comments',array(
-    'comments'=>$model->comments,
-)); ?>
-
-  <h3>Leave a Comment</h3>
+<br />
+<h2>
+	<?php echo $model->commentCount . ' Comment(s)'; ?>
+</h2>
+<br />
+		<?php if($model->commentCount>=1): ?>
+			<?php $this->renderPartial('_comments',array(
+				'post'=>$model,
+				'comments'=>$model->comments,
+			)); ?>
+		<?php endif; ?>
+ <h2>Leave a Comment</h2>
       <?php $this->renderPartial('/comment/_form',array(
         'model'=>$comment,
       )); ?>
