@@ -29,7 +29,7 @@ class PostController extends Controller
 	{
 		return array(
               array('allow',
-                  'actions'=>array('index','view','search'),
+                  'actions'=>array('index','view','search','CommentSpam'),
                   'users'=>array('*'),
               ),
               array('allow',
@@ -162,12 +162,7 @@ class PostController extends Controller
 	{
 		if($this->_model===null)
             {
-                if(isset($_GET['id']))
-                {
-                    $condition='';
-                        
-                    $this->_model=Post::model()->findByPk($_GET['id'], $condition);
-                }
+				$this->_model=Post::model()->findByPk($id);
                 if($this->_model===null)
                     throw new CHttpException(404,'The requested page does not exist.');
             }
@@ -213,5 +208,15 @@ class PostController extends Controller
 	        }
 	    }
 	    return $comment;
+	}
+	public function actionCommentSpam()
+	{
+		if(isset($_GET['id']))
+		{
+			$comment=Comment::model()->findByPk($_GET['id'],'');
+			$comment->updateSpam();
+			$this->redirect(array('view','id'=>$comment->post_id));
+		}
+		
 	}
 }

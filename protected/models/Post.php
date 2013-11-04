@@ -59,6 +59,7 @@ class Post extends CActiveRecord
 		return array(
 			'comments' => array(self::HAS_MANY, 'Comment', 'post_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'user_id'),
+			'commentCount'=> array(self::STAT,'Comment','post_id' ),
 		);
 	}
 
@@ -121,8 +122,7 @@ class Post extends CActiveRecord
 	public function addComment($comment)
 	{
 		$comment->post_id=$this->id;
-		$comment->name = $this->user_id;
-        $comment->date_create = date('Y-m-d H:i:s');
+		$comment->date_create=new CDbExpression('NOW()');
         //echo $comment->post_id;
 		return $comment->save();
 	}
