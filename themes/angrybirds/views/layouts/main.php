@@ -132,9 +132,7 @@
 <div class="footerbox" id="footerbox1">
 <h4>Recent Posts</h4>
 <ul>
-	<li><a href="#">Introducing WP Theme</a></li>
-	<li><a href="#">Another image in a post</a></li>
-	<li><a href="#">An image in a post</a></li>
+	<?php $this->widget('RecentPostWidget'); ?>
 </ul>
 </div>
 

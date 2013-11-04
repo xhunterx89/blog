@@ -1115,3 +1115,17 @@ DaoLM : Style
     color: white;
     text-decoration: none;
 }
+
+.detail-text input{
+    background: none repeat scroll 0 0 #7E920F;
+    border: medium none;
+    color: #FFFFFF;
+    font-size: 10px;
+    font-weight: bold;
+    height: 28px;
+    margin: 0 15px 0 0;
+    outline: medium none;
+    padding: 0 0 0 5px;
+    text-transform: uppercase;
+    width: 120px;
+}

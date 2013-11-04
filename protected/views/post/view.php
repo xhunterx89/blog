@@ -19,7 +19,7 @@ $this->breadcrumbs=array(
 	'Posts'=>array('index'),
 	$model->title,
 );
- if(!Yii::app()->user->isGuest){
+ if((!Yii::app()->user->isGuest)&&(Yii::app()->user->id==$model->user_id)){
     $this->widget('zii.widgets.CMenu',array(
      'activeCssClass'=>'active',
      'activateParents'=>true,
