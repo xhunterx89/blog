@@ -115,11 +115,11 @@
 </div>
 
 <div class="widget">
-<h3>Categories</h3>
+<h3>Hot Blog</h3>
 <ul> 
-	<li class="cat-item cat-item-3"><a href="#" title="View all posts filed under Category 1">Category 1</a></li>
-	<li class="cat-item cat-item-5"><a href="#" title="View all posts filed under Category 2">Category 2</a></li>
-	<li class="cat-item cat-item-6"><a href="#" title="View all posts filed under Category 3">Category 3</a></li>
+	<li class="cat-item cat-item-3"><a href="http://blog.khoctham.us/index.php">Blog 1</a></li>
+	<li class="cat-item cat-item-5"><a href="http://haydanhthoigian.net/">Blog 2</a></li>
+	<li class="cat-item cat-item-6"><a href="http://vnbloghay.blogspot.com/2013/09/day-trau-trong-bao.html">Blog 3</a></li>
 </ul>
 </div>
 
@@ -132,9 +132,7 @@
 <div class="footerbox" id="footerbox1">
 <h4>Recent Posts</h4>
 <ul>
-	<li><a href="#">Introducing WP Theme</a></li>
-	<li><a href="#">Another image in a post</a></li>
-	<li><a href="#">An image in a post</a></li>
+	<?php $this->widget('RecentPostWidget'); ?>
 </ul>
 </div>
 

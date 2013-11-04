@@ -89,15 +89,21 @@ class PostController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+                
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['Post']))
 		{
-			$model->attributes=$_POST['Post'];
+                        if(Yii::app()->user->id!=$model->user_id)
+                        {
+                            throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
+                        }else
+                        {
+                        $model->attributes=$_POST['Post'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+                        }
 		}
 
 		$this->render('update',array(
