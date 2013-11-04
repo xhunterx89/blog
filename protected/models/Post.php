@@ -118,13 +118,12 @@ class Post extends CActiveRecord
         parent::afterDelete();
     }
 
-    public function addComment($comment)
+	public function addComment($comment)
 	{
-	    if(Yii::app()->params['commentNeedApproval'])
-	        $comment->status=Comment::STATUS_PENDING;
-	    else
-	        $comment->status=Comment::STATUS_APPROVED;
-	    $comment->post_id=$this->id;
-	    return $comment->save();
+		$comment->post_id=$this->id;
+		$comment->name = $this->user_id;
+        $comment->date_create = date('Y-m-d H:i:s');
+        //echo $comment->post_id;
+		return $comment->save();
 	}
 }

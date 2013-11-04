@@ -42,9 +42,12 @@ class Comment extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('content, name', 'required'),
-			array('name', 'length', 'max'=>128),
-			array('date_create', 'safe'),		
+			array('post_id, spam', 'numerical', 'integerOnly'=>true),
+			array('name', 'length', 'max'=>100),
+			array('content, date_create', 'safe'),
+			// The following rule is used by search().
+			// Please remove those attributes that should not be searched.
+			array('id, name, post_id, content, date_create, spam', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -79,20 +82,22 @@ class Comment extends CActiveRecord
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
-	public static function model($className=__CLASS__)
+	public function search()
 	{
-		return parent::model($className);
-	}
-	protected function beforeSave()
-	{
-		if(parent::beforeSave())
-		{
-			if($this->isNewRecord)
-				$this->create_time=time();
-				$this->spam=0;
-			return true;
-		}
-		else
-			return false;
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
+
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('post_id',$this->post_id);
+		$criteria->compare('content',$this->content,true);
+		$criteria->compare('date_create',$this->date_create,true);
+		$criteria->compare('spam',$this->spam);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
 	}
 }
