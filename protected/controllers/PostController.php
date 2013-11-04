@@ -47,9 +47,16 @@ class PostController extends Controller
 	 */
 	public function actionView($id)
 	{
+		$post=$this->loadModel($id);
+		$comment = $this->newComment($post);
+
 		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
+			'model'=>$post,
+			'comment'=>$comment,
+			));
+		// $this->render('view',array(
+		// 	'model'=>$this->loadModel($id),
+		// ));
 	}
 
 	/**
@@ -181,15 +188,38 @@ class PostController extends Controller
 		}
 	}
         
-        public function actionSearch()
-        {
-            $model=new Post('search');
-            $model->unsetAttributes();  // clear any default values
-            if(isset($_GET['search_key'])) 
-                $model->title = $_GET['search_key'];     
+    public function actionSearch()
+    {
+        $model=new Post('search');
+        $model->unsetAttributes();  // clear any default values
+        if(isset($_GET['search_key'])) 
+            $model->title = $_GET['search_key'];     
 
-            $this -> render('search', array(
-                'model' => $model,
-            ));
-        }
+        $this -> render('search', array(
+            'model' => $model,
+        ));
+    }
+
+    protected function newComment($post)
+	{
+	    $comment=new Comment;
+	 
+	    if(isset($_POST['ajax']) && $_POST['ajax']==='comment-form')
+	    {
+	        echo CActiveForm::validate($comment);
+	        Yii::app()->end();
+	    }
+	 
+	    if(isset($_POST['Comment']))
+	    {
+	        $comment->attributes=$_POST['Comment'];
+	        if($post->addComment($comment))
+	        {
+	            if($comment->status==Comment::STATUS_PENDING)
+	                Yii::app()->user->setFlash('commentSubmitted','Thank you for your comment. Your comment will be posted once it is approved.');
+	            $this->refresh();
+	        }
+	    }
+	    return $comment;
+	}
 }
