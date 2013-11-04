@@ -1,6 +1,8 @@
-<h1>View Post #<?php echo $model->id; ?></h1>
+<h1>
+<?php echo CHtml::link(CHtml::encode($model->title), array('view', 'id'=>$model->id)); ?>
+</h1>
 
-<?php $this->widget('zii.widgets.CDetailView', array(
+<!--?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
@@ -9,8 +11,14 @@
 		'content:html',
 		'date_create',
 	),
-)); ?>
-
+)); ?-->
+  <div class="form">
+  <p class="hint">
+    Posted by <?php echo $model->user_id . ' on ' . date('F j, Y',strtotime($model->date_create)); ?>
+  </p>
+  </div>
+  </br>
+  <?php echo ($model->content); ?>
 <?php
 /* @var $this PostController */
 /* @var $model Post */
@@ -19,6 +27,7 @@ $this->breadcrumbs=array(
 	'Posts'=>array('index'),
 	$model->title,
 );
+
  if((!Yii::app()->user->isGuest)&&(Yii::app()->user->id==$model->user_id)){
     $this->widget('zii.widgets.CMenu',array(
      'activeCssClass'=>'active',

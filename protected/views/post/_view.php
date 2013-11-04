@@ -8,18 +8,16 @@
   $cs->registerScriptFile($baseUrl.'/js/readmore.js');
 ?>
 <div class="view">
-	<!--?php $this->widget('PostDate', array('ct'=>date('F'.'<\b\r>j', strtotime($data->date_create)))); ?-->
-	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<h1>
 	<?php echo CHtml::link(CHtml::encode($data->title), array('view', 'id'=>$data->id)); ?>
-	<br />
-        <article>
-        <b><?php echo CHtml::encode($data->getAttributeLabel('content')); ?>:</b>
+	</h1>
+	<div class="form">
+	<p class="hint">
+		Posted by <?php echo $data->user_id . ' on ' . date('F j, Y',strtotime($data->date_create)); ?>
+	</p>
+	</div>
+	</br>
 	<?php echo ($data->content); ?>
-	<br />
-        <article>
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date_create')); ?>:</b>
-	<?php echo CHtml::encode($data->date_create); ?>
-	<br />
 
 <script>
   $('article').readmore({maxHeight: 240});
