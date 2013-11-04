@@ -49,9 +49,11 @@ $this->breadcrumbs=array(
  }
 ?>
 <br />
+<div class="row">
 <h2>
 	<?php echo $model->commentCount . ' Comment(s)'; ?>
 </h2>
+</div>
 <br />
 		<?php if($model->commentCount>=1): ?>
 			<?php $this->renderPartial('_comments',array(
